@@ -4,6 +4,7 @@ function AddRecipeForm() {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
   const [instructions, setInstructions] = useState("");
+  const [steps, setSteps] = useState(""); 
   const [errors, setErrors] = useState({});
 
   const validate = () => {
@@ -12,6 +13,7 @@ function AddRecipeForm() {
     if (!title.trim()) newErrors.title = "Title is required";
     if (!ingredients.trim()) newErrors.ingredients = "Ingredients are required";
     if (!instructions.trim()) newErrors.instructions = "Instructions are required";
+    if (!steps.trim()) newErrors.steps = "Steps are required";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -26,6 +28,7 @@ function AddRecipeForm() {
       title,
       ingredients: ingredients.split(","),
       instructions,
+      steps,
     };
 
     console.log("Recipe added:", newRecipe);
@@ -33,6 +36,7 @@ function AddRecipeForm() {
     setTitle("");
     setIngredients("");
     setInstructions("");
+    setSteps("");
     setErrors({});
   };
 
@@ -74,10 +78,24 @@ function AddRecipeForm() {
             value={instructions}
             onChange={(e) => setInstructions(e.target.value)}
             className="w-full border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-500"
-            rows="4"
+            rows="3"
           />
           {errors.instructions && (
             <p className="text-red-500 text-sm mt-1">{errors.instructions}</p>
+          )}
+        </div>
+
+        <div>
+          <label className="block text-gray-700 font-medium mb-1">Steps</label>
+          <textarea
+            value={steps}
+            onChange={(e) => setSteps(e.target.value)}
+            className="w-full border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-500"
+            rows="3"
+            placeholder="Enter step-by-step directions"
+          />
+          {errors.steps && (
+            <p className="text-red-500 text-sm mt-1">{errors.steps}</p>
           )}
         </div>
 
