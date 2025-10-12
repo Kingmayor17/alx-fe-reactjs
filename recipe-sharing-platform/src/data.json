@@ -1,14 +1,16 @@
 [
   {
     "id": 1,
-    "title": "Spaghetti Carbonara",
-    "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://via.placeholder.com/150"
+    "title": "Jollof Rice",
+    "image": "/images/jollof.jpeg",
+    "ingredients": ["Rice", "Tomatoes", "Onions", "Pepper", "Oil"],
+    "instructions": "1. Cook rice.\n2. Prepare sauce.\n3. Mix together and serve hot."
   },
   {
     "id": 2,
-    "title": "Chicken Tikka Masala",
-    "summary": "Chunks of grilled chicken cooked in creamy tomato gravy.",
-    "image": "https://via.placeholder.com/150"
+    "title": "Egusi Soup",
+    "image": "/images/egusi.jpeg",
+    "ingredients": ["Egusi", "Palm oil", "Vegetables", "Pepper", "Meat"],
+    "instructions": "1. Fry egusi.\n2. Add meat and vegetables.\n3. Cook until thick and tasty."
   }
 ]
