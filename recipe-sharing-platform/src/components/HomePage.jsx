@@ -1,50 +1,40 @@
-import React, { useState, useEffect } from "react";
-import data from "../data.json";
+import { Link } from "react-router-dom"; 
+import recipes from "../data.json"; 
 
-const HomePage = () => {
-  const [recipes, setRecipes] = useState([]);
-
-  useEffect(() => {
-
-    setRecipes(data);
-  }, []);
-
+function HomePage() {
   return (
-    <div className="p-6 min-h-screen bg-gray-100">
-      <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-8">
-        Recipe Sharing Platform
+    <div className="max-w-4xl mx-auto my-10 p-6">
+      <h1 className="text-3xl font-bold text-center text-blue-800 mb-8">
+        Recipe List
       </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {recipes.map((recipe) => (
           <div
             key={recipe.id}
-            className="bg-white shadow-xl rounded-xl overflow-hidden transform hover:shadow-2xl hover:scale-[1.02] transition duration-300 ease-in-out"
+            className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition"
           >
-            <img 
-              src={recipe.image} 
-              alt={recipe.title} 
-              className="w-full h-48 object-cover" 
+            <img
+              src={recipe.image}
+              alt={recipe.title}
+              className="w-full h-48 object-cover rounded-md mb-4"
             />
-            <div className="p-5">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2 truncate">
-                {recipe.title}
-              </h2>
-              <p className="text-gray-600 mb-4 line-clamp-3">
-                {recipe.summary}
-              </p>
-              {}
-              <a
-                href={`/recipe/${recipe.id}`}
-                className="inline-block px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-200"
-              >
-                View Recipe
-              </a>
-            </div>
+            <h2 className="text-xl font-semibold text-gray-800 mb-2">
+              {recipe.title}
+            </h2>
+
+            {}
+            <Link
+              to={`/recipe/${recipe.id}`}
+              className="text-blue-600 hover:text-blue-800 font-medium"
+            >
+              View Recipe →
+            </Link>
           </div>
         ))}
       </div>
     </div>
   );
-};
+}
 
 export default HomePage;
