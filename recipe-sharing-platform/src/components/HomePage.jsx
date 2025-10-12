@@ -5,8 +5,7 @@ const HomePage = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    // In a real app, you would fetch data here.
-    // For this task, we load the static JSON data directly.
+
     setRecipes(data);
   }, []);
 
@@ -33,9 +32,9 @@ const HomePage = () => {
               <p className="text-gray-600 mb-4 line-clamp-3">
                 {recipe.summary}
               </p>
-              {/* Added the required link to view recipe details */}
+              {}
               <a
-                href={`/recipe/${recipe.id}`} // Placeholder for the detail page route
+                href={`/recipe/${recipe.id}`}
                 className="inline-block px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-200"
               >
                 View Recipe
